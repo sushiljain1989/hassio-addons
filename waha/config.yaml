@@ -1,6 +1,6 @@
 name: "WAHA WhatsApp"
 description: "WhatsApp HTTP API - Send and receive WhatsApp messages via REST API"
-version: "1.1.0"
+version: "1.2.0"
 slug: "waha"
 init: false
 arch:
@@ -10,8 +10,46 @@ ports:
   3000/tcp: 3000
 ports_description:
   3000/tcp: "WAHA Web UI and REST API"
-webui: "http://[HOST]:[PORT:3000]"
+webui: "http://[HOST]:[PORT:3000]/dashboard"
 map:
   - data:rw
 homeassistant: "2023.1.0"
 url: https://waha.devlike.pro
+options:
+  api_key: ""
+  dashboard_username: "admin"
+  dashboard_password: ""
+  swagger_enabled: false
+  swagger_username: "admin"
+  swagger_password: ""
+  engine: "GOWS"
+  print_qr: false
+  timezone: "UTC"
+  session_name: "default"
+  auto_start: true
+  apply_storage_to_existing: true
+  storage_messages: false
+  storage_groups: false
+  storage_chats: false
+  storage_labels: false
+  storage_contacts: false
+  storage_message_secrets: false
+schema:
+  api_key: password
+  dashboard_username: str
+  dashboard_password: password
+  swagger_enabled: bool
+  swagger_username: str
+  swagger_password: password
+  engine: list(WEBJS|GOWS|NOWEB)
+  print_qr: bool
+  timezone: str
+  session_name: match(^[A-Za-z0-9_-]+$)
+  auto_start: bool
+  apply_storage_to_existing: bool
+  storage_messages: bool
+  storage_groups: bool
+  storage_chats: bool
+  storage_labels: bool
+  storage_contacts: bool
+  storage_message_secrets: bool
