@@ -1,6 +1,9 @@
 # WAHA WhatsApp Home Assistant add-on
 
 This add-on runs the official WAHA CORE GOWS image and exposes its dashboard and REST API on port 3000.
+GOWS does not require the headless Chrome browser used by browser-based WAHA engines, reducing
+memory and CPU overhead. QR authentication is delivered through WAHA's dashboard/API session flow
+instead of maintaining a separate browser-based QR-serving process.
 
 ## Setup
 
