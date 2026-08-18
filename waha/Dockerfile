@@ -1,10 +1,8 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-ENV WAHA_API_KEY=waha_fixed_key_2026
-ENV WAHA_DASHBOARD_USERNAME=admin
-ENV WAHA_DASHBOARD_PASSWORD=waha_fixed_password_2026
-ENV WHATSAPP_SWAGGER_USERNAME=admin
-ENV WHATSAPP_SWAGGER_PASSWORD=waha_fixed_password_2026
-ENV WAHA_DEFAULT_SESSION=default
-ENV WAHA_LOCAL_STORE_BASE_DIR=/data/.sessions
+COPY run.sh /usr/local/bin/waha-ha-run
+COPY onboard.js /usr/local/bin/waha-ha-onboard.js
+RUN chmod 755 /usr/local/bin/waha-ha-run
+
+ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/waha-ha-run"]

@@ -1,3 +1,3 @@
 build_from:
-  aarch64: devlikeapro/waha-plus:arm-2026.7.2
-  amd64: devlikeapro/waha-plus:latest-2026.7.2
+  aarch64: devlikeapro/waha:gows-arm-2026.8.1
+  amd64: devlikeapro/waha:gows-2026.8.1
